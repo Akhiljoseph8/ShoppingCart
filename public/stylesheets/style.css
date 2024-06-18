@@ -1,0 +1,10 @@
+.dropdown-menu{
+min-width: 0rem;
+width: 5.5rem;
+}
+.pending{
+    cursor: pointer;
+}
+body{
+    padding-left: 0px;
+}

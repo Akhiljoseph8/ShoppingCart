@@ -1,0 +1,54 @@
+
+<section style="margin-top: 5rem;">
+
+<form id="search-form" class="form-inline my-2 my-lg-0">
+      <input id="search-key" class="form-control mr-sm-2" type="text" onChange="search(this.value)" placeholder="Search" name="key" aria-label="Search" value="{{key}}">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
+    </form>
+{{#if noProduct}}
+<p class="text-danger">Could not Found Product on '{{key}}'</p>
+{{/if}}
+  <div class="container mt-3" >
+    <div class="row" >
+  {{#each products}}
+  <div class="col-md-3 mt-2" >
+    <div class="card" style="width: 15rem; height: 22rem;">
+      <div class="" style="width: 15rem; justify-content: center ;display: flex;">
+  <img class="card-img-top" src="/product-images/{{this._id}}.jpg" alt="Card image cap" style="height: 10rem; width:10rem;">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{this.Name}}</h5>
+    <p>&#x20B9; {{this.Price}}</p>
+    <p class="card-text">{{this.Description}}</p>
+    <button onclick="addToCart('{{this._id}}')"class="btn btn-primary">Add to Cart</button>
+  </div>
+</div>
+</div>
+{{/each}}
+   </div>
+</div>
+</section>
+
+  <script>
+  
+    $('#search-form').submit((e)=>{
+        e.preventDefault()
+        key=document.getElementById('search-key').value
+        if(key){
+             location.href='/product-search/'+key
+        }else{
+          location.href='/'
+        }
+    })
+function search(value){
+  if(!value){
+location.href='/'
+  }
+}
+  </script>
+
+
+ 
+      
+
+
