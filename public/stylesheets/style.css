@@ -8,3 +8,58 @@ width: 5.5rem;
 body{
     padding-left: 0px;
 }
+
+/* Footer Styles */
+.footer {
+    background: #333;
+    color: #fff;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .footer .container {
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  
+  .footer-column {
+    flex: 1 1 calc(25% - 20px);
+    min-width: 220px;
+  }
+  
+  .footer-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .footer-links,
+  .footer-contact {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links li,
+  .footer-contact li {
+    margin: 10px 0;
+  }
+  
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+    color: #f6d365;
+  }
+  
+  
+  
