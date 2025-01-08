@@ -23,6 +23,6 @@
     "razorpay": "^2.9.0"
   },
   "engines": {
-  "node": ">=18.x"
+  "node": "<=18.x"
 }
 }
