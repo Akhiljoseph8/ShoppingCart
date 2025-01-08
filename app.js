@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var fileUpload=require('express-fileupload')
+require('dotenv').config(); // Load environment variables
 var db = require('./config/connection')
 var adminRouter = require('./routes/admin');
 var userRouter = require('./routes/user');
