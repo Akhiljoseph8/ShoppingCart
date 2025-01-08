@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var fileUpload=require('express-fileupload')
-var db=require('./config/connection')
+var db = require('./config/connection')
 var adminRouter = require('./routes/admin');
 var userRouter = require('./routes/user');
 var hbs= require('express-handlebars');
@@ -22,7 +22,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileUpload())
-app.use(session({secret:"Key",cookie:{maxAge:3600000}}))
+app.use(session({secret:"Key",
+  resave: false, // Prevents session saving when no changes are made
+    saveUninitialized: true, // Creates a session even if it is not modified
+  cookie:{maxAge:3600000}}))
+
 db.connect((err)=>{
 if(err) console.log("Connection error")
 else console.log("Database")

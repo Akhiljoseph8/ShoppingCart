@@ -16,3 +16,5 @@ module.exports.connect=function(done){
 module.exports.get=function(){ 
     return state.db
 }
+
+// mongodb+srv://akhil:akhil@cluster0.kzna9t8.mongodb.net/SHOPPINGCART?retryWrites=true&w=majority&appName=Cluster0
