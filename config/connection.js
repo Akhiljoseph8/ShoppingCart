@@ -6,7 +6,7 @@ const state = {
 
 const connect = async (done) => {
   try {
-    const url = 'mongodb+srv://akhil:akhil@cluster0.kzna9t8.mongodb.net/?retryWrites=true&w=majority';
+const url = process.env.MONGO_URI;
     const dbName = 'shopping';
 
     // Create a MongoClient instance

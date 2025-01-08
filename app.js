@@ -10,6 +10,7 @@ var userRouter = require('./routes/user');
 var hbs= require('express-handlebars');
 var session=require('express-session')
 var app = express();
+require('dotenv').config(); // Load environment variables
 
 
 // view engine setup
