@@ -62,4 +62,11 @@ body{
   }
   
   
-  
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+}
+
+.table {
+    min-width: 600px; /* Minimum table width to prevent content from squeezing */
+}
