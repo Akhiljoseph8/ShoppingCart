@@ -19,7 +19,8 @@ const url = process.env.MONGO_URI;
     await client.connect();
     console.log('Database connected successfully');
     state.db = client.db(dbName); // Store the DB instance
-
+    console.log(state.db)
+    get()
     if (done) done(); // Call done callback if provided
   } catch (err) {
     console.error('Database connection failed:', err);
@@ -28,13 +29,13 @@ const url = process.env.MONGO_URI;
   }
 };
 
-// const get = () => {
-//   if (!state.db) {
-//     throw new Error('Database not connected!');
-//   }
-//   return state.db; // Return the stored DB instance
-// };
+const get = () => {
+  if (!state.db) {
+    throw new Error('Database not connected!');
+  }
+  return state.db; // Return the stored DB instance
+};
 
-module.exports = { connect, get };
+module.exports = { connect};
 
 
