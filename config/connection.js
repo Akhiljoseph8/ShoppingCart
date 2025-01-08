@@ -28,12 +28,12 @@ const url = process.env.MONGO_URI;
   }
 };
 
-const get = () => {
-  if (!state.db) {
-    throw new Error('Database not connected!');
-  }
-  return state.db; // Return the stored DB instance
-};
+// const get = () => {
+//   if (!state.db) {
+//     throw new Error('Database not connected!');
+//   }
+//   return state.db; // Return the stored DB instance
+// };
 
 module.exports = { connect, get };
 
