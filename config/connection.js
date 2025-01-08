@@ -38,4 +38,3 @@ const get = () => {
 module.exports = { connect, get };
 
 
-// mongodb+srv://akhil:akhil@cluster0.kzna9t8.mongodb.net/SHOPPINGCART?retryWrites=true&w=majority&appName=Cluster0
