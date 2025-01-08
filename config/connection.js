@@ -1,20 +1,41 @@
-const mongoClient=require('mongodb').MongoClient
-const state={
-    db:null
-}
-module.exports.connect=function(done){
-    const url='mongodb+srv://akhil:akhil@cluster0.kzna9t8.mongodb.net/shopping?retryWrites=true&w=majority'
-    const dbname='shopping'
-   
-    mongoClient.connect(url,{ useUnifiedTopology: true },(err,data)=>{
-        if(err) return done(err)
-        state.db=data.db(dbname)  
-           done()
-    })
+const { MongoClient } = require('mongodb');
 
-}
-module.exports.get=function(){ 
-    return state.db
-}
+const state = {
+  db: null,
+};
+
+const connect = async (done) => {
+  try {
+    const url = 'mongodb+srv://akhil:akhil@cluster0.kzna9t8.mongodb.net/?retryWrites=true&w=majority';
+    const dbName = 'shopping';
+
+    // Create a MongoClient instance
+    const client = new MongoClient(url, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true, // Modern flag
+    });
+
+    // Connect to the database
+    await client.connect();
+    console.log('Database connected successfully');
+    state.db = client.db(dbName); // Store the DB instance
+
+    if (done) done(); // Call done callback if provided
+  } catch (err) {
+    console.error('Database connection failed:', err);
+    if (done) done(err);
+    throw err;
+  }
+};
+
+const get = () => {
+  if (!state.db) {
+    throw new Error('Database not connected!');
+  }
+  return state.db; // Return the stored DB instance
+};
+
+module.exports = { connect, get };
+
 
 // mongodb+srv://akhil:akhil@cluster0.kzna9t8.mongodb.net/SHOPPINGCART?retryWrites=true&w=majority&appName=Cluster0
